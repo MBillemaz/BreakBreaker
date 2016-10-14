@@ -11,8 +11,8 @@ class Point():
     y=None
 #Speed of the ball per pixel
 speed= Point()
-speed.x = 1
-speed.y = 1
+speed.x = 10
+speed.y = 10
 
 #constant for dimension of window
 WINDOW_X = 640
