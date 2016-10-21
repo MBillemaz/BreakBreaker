@@ -87,6 +87,7 @@ while game:
                     if event.key == K_LEFT and xp > 10:
                         xp -= 15
     windows.blit(player, (xp,450))
+    ball.block_coll(liste)
     for i in liste:
             if i.isDead == False:
                 windows.blit(i.pic, (i.posX , i.posY))

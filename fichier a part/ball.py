@@ -64,3 +64,17 @@ def collision(xp):
         speed.y = 1
         ball.x = WINDOW_X/2
         ball.y = WINDOW_Y/2
+
+def block_coll(liste):
+    for i in liste:
+        if i.isDead == False:
+            if i.posX <= ball.x <= i.posX + 46:
+                if ball.y == i.posY + 16:
+                    i.isDead = True
+                    speed.y = -1*speed.y
+                elif i.posY == ball.y:
+                    i.isDead = True
+                    speed.y = -1*speed.y
+                elif i.posY <= ball.y <= i.posY + 14:
+                    i.isDead = True
+                    speed.x = -1*speed.x

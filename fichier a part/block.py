@@ -26,3 +26,4 @@ def brick_gen():
         else:
             posX = posX + 45
     return liste
+
