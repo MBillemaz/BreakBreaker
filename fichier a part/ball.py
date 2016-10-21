@@ -24,8 +24,8 @@ ballSprite = pygame.image.load("Sprites/ball/ball.png")
 def initBall():
 
     #Get the middle of thwindow
-    ball.x = WINDOW_X/2
-    ball.y = WINDOW_Y/2
+    ball.x = WINDOW_X/2+ 15
+    ball.y = 430
 
 def updateBall(windows, xp):
     #update the position of the ball

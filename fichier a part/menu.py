@@ -4,9 +4,12 @@ from pygame.locals import *
 from time import*
 from threading import Timer
 import ball
+import block
 pygame.init()
 
-windows =  pygame.display.set_mode((640, 480))
+WINDOW_X = 640
+WINDOW_Y = 480
+windows =  pygame.display.set_mode((WINDOW_X, WINDOW_Y))
 background = pygame.image.load("background.jpg")
 abscisse_fond = 0
 windows.blit(background, (0,0))
@@ -24,7 +27,8 @@ menu = True
 game = False
 help_menu = False
 
-xp = 320
+xp = WINDOW_X/2
+liste = []
 
 #spacebar = pygame.image.load().convert_alpha()
 #win = pygame.image.load(
@@ -45,6 +49,7 @@ while menu:
                 game = True
                 menu = False
                 ball.initBall()
+                liste = block.brick_gen()
             if event.key == K_h:
                 help_menu = True
                 menu = False
@@ -81,6 +86,9 @@ while game:
                     
                     if event.key == K_LEFT and xp > 10:
                         xp -= 15
-    windows.blit(player, (xp,450))  
+    windows.blit(player, (xp,450))
+    for i in liste:
+            if i.isDead == False:
+                windows.blit(i.pic, (i.posX , i.posY))
     pygame.display.flip()    
 
