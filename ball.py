@@ -84,11 +84,10 @@ def block_coll(liste):
                 if i.posY <= ball.y <= i.posY + 14:
                     i.isDead = True
                     speed.x = -1*speed.x
-def perdreVie():
-    vie = vie-1
 
 def getVie():
     return vie
 
 def setVie(newVie):
-    vie = newVie
+    global vie
+    vie= newVie
