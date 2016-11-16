@@ -27,6 +27,7 @@ right = pygame.image.load("Sprites/menu/right.jpg").convert_alpha()
 player = pygame.image.load("Sprites/Paddle/paddle.png").convert_alpha()
 
 windows.blit(background, (0,0))
+win = False
 
 menu = True
 game = False
@@ -96,7 +97,10 @@ while menu == True or game == True or ball.getVie() == 0:
                 if i.isDead == False:
                     windows.blit(i.pic, (i.posX , i.posY))
         pygame.display.flip()
-
+        win = True
+        for i in liste:
+            if i.isDead == False:
+                win = False
     #Si on a plus de vie
     while ball.getVie() == 0:
         windows.blit(loose, (0,0))
@@ -110,3 +114,11 @@ while menu == True or game == True or ball.getVie() == 0:
                 menu = True
                 game = False
                 print(ball.getVie())
+    while win == True:
+        pic = pygame.image.load("Sprites/win.png")
+        windows.blit(pic,(0,0))
+        pygame.display.flip()
+        for event in pygame.event.get():
+            if event.type == K_ESCAPE:
+                win = False
+                menu = True   

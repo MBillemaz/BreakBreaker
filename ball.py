@@ -1,5 +1,4 @@
 import pygame
-import WinOrLoose
 from pygame.locals import*
 from time import*
 from threading import Timer
@@ -11,8 +10,8 @@ class Point():
     y=None
 #Speed of the ball per pixel
 speed= Point()
-speed.x = 4
-speed.y = 4
+speed.x = 2
+speed.y = 2
 TaillePad = 125
 #constant for dimension of window
 WINDOW_X = 640
@@ -54,10 +53,10 @@ def collision(xp, windows):
             #The Ball is on the paddle
     if ball.y + BALL_HEIGHT >= POSPAD_Y and  xp < ball.x + BALL_HEIGHT < xp + TaillePad and ball.y < POSPAD_Y + 7.5:
         if -25 < speed.x < 25:
-            speed.x = 1.1*speed.x
+            speed.x = 1.05*speed.x
 
             if speed.y > 0:
-                speed.y = -1.1*(speed.y)
+                speed.y = -1.05*(speed.y)
         else:
             speed.x = 1*speed.x
             speed.y = -1*speed.y
