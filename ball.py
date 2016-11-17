@@ -10,8 +10,8 @@ class Point():
     y=None
 #Speed of the ball per pixel
 speed= Point()
-speed.x = 2
-speed.y = 2
+speed.x = 1.5
+speed.y = 1.5
 TaillePad = 125
 #constant for dimension of window
 WINDOW_X = 640
@@ -63,8 +63,8 @@ def collision(xp, windows):
             #the ball is under the paddle -> loose
     elif ball.y > WINDOW_Y:
         vie = vie-1
-        speed.x = 5
-        speed.y = 5
+        speed.x = -1*(speed.x/speed.x)
+        speed.y = -1
         ball.x = WINDOW_X/2
         ball.y = WINDOW_Y/2
                                                 
@@ -79,7 +79,6 @@ def block_coll(liste):
                 elif i.posY +2 >= ball.y >= i.posY:
                     i.isDead = True
                     speed.y = -1*speed.y
-                    print("lol")
                 if i.posY <= ball.y <= i.posY + 14:
                     i.isDead = True
                     speed.x = -1*speed.x

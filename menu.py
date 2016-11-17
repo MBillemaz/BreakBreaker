@@ -55,6 +55,7 @@ while menu == True or game == True or ball.getVie() == 0:
                 if event.key == K_SPACE:
                     game = True
                     menu = False
+                    win = False
                     ball.initBall()
                     liste = block.brick_gen()
                 if event.key == K_h:
@@ -76,7 +77,7 @@ while menu == True or game == True or ball.getVie() == 0:
                 if event.key == K_space:
                     help_menu = False
     #Tant que l'on a toujours des vies        
-    while game and ball.getVie() > 0:
+    while game and ball.getVie() > 0 and win == False:
         
         windows.blit(background,(0,0))
         ball.updateBall(windows, xp)
@@ -119,6 +120,10 @@ while menu == True or game == True or ball.getVie() == 0:
         windows.blit(pic,(0,0))
         pygame.display.flip()
         for event in pygame.event.get():
-            if event.type == K_ESCAPE:
+            if event.type == QUIT:  
+                pygame.quit()
+            if event.key == K_ESCAPE:
+                ball.setVie(3)
                 win = False
-                menu = True   
+                menu = True
+                game = False

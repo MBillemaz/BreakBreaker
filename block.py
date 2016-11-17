@@ -15,7 +15,7 @@ def brick_gen():
     posX = 20
     posY = 20
     
-    for i in range (0,4):
+    for i in range (0,104):
         testbrick = brick()
         testbrick.posX = posX
         testbrick.posY = posY
